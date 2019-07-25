@@ -21,6 +21,8 @@ class AuthActivity : AppCompatActivity() {
 
         authViewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
+        binding.lifecycleOwner = this
+        binding.viewModel = authViewModel
         binding.executePendingBindings()
 
         setupView()
@@ -40,6 +42,7 @@ class AuthActivity : AppCompatActivity() {
 
             onInputEmpty.observe(this@AuthActivity, Observer {
                 layoutEmail.error = getString(R.string.hint_error)
+                layoutSenha.error = getString(R.string.hint_error)
             })
 
         }
