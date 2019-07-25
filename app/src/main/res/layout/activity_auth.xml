@@ -8,7 +8,7 @@
         
         <variable
             name="viewModel"
-            type="com.albuquerque.parrot.app.viewmodel.AuthViewModel" />
+            type="com.albuquerque.parrot.app.auth.viewmodel.AuthViewModel" />
         
     </data>
 
@@ -55,7 +55,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/hint_email"
-            android:textColorHint="@android:color/white"
+            android:textColorHint="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@+id/layoutSenha"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,20 +66,21 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:text="@={viewModel.user.email}"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutSenha"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/hint_senha"
-            android:textColorHint="@android:color/white"
+            passwordValidator="@{viewModel.user.senha}"
+            msgError="@string/hint_senha"
+            android:textColorHint="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:text="@={viewModel.user.senha}"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

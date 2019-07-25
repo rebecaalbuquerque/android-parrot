@@ -1,28 +1,36 @@
-package com.albuquerque.parrot.app.model
+package com.albuquerque.parrot.app.auth.model
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.albuquerque.parrot.BR
+import android.text.TextUtils
+import android.text.Editable
+
+
 
 class User : BaseObservable(){
 
-        @Bindable
+        /*
+        * @Bindable e notifyPropertyChanged garantem que as atualizações no model atualizem também a view
+        * */
+
         var nome: String = ""
+                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.nome)
                 }
 
-        @Bindable
         var email: String = ""
+                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.email)
                 }
 
 
-        @Bindable
         var senha: String = ""
+                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.senha)
