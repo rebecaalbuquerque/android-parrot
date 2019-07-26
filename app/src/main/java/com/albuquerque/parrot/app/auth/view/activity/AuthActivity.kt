@@ -7,8 +7,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.albuquerque.parrot.R
 import com.albuquerque.parrot.app.auth.viewmodel.AuthViewModel
+import com.albuquerque.parrot.app.register.view.activity.RegisterActivity
 import com.albuquerque.parrot.databinding.ActivityAuthBinding
 import kotlinx.android.synthetic.main.activity_auth.*
+import org.jetbrains.anko.startActivity
 
 
 class AuthActivity : AppCompatActivity() {
@@ -38,17 +40,21 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+
         buttonLogin.setOnClickListener {
             authViewModel.login()
         }
+
+        signUp.setOnClickListener {
+            startActivity<RegisterActivity>()
+        }
+
     }
 
     private fun subscribeUI() {
 
         with(authViewModel) {
 
-            onInputEmpty.observe(this@AuthActivity, Observer {
-            })
 
         }
 

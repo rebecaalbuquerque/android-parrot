@@ -1,11 +1,10 @@
-package com.albuquerque.parrot.app.auth.bindingAdapter
+package com.albuquerque.parrot.core.bindingAdapter
 
 import android.text.TextUtils
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputLayout
 
-
-@BindingAdapter("passwordValidator", "msgError")
+@BindingAdapter(value = ["passwordValidator", "msgError"], requireAll = true)
 fun passwordValidator(view: TextInputLayout, password: String, msgError: String) {
 
     if (TextUtils.isEmpty(password)) {
@@ -13,12 +12,9 @@ fun passwordValidator(view: TextInputLayout, password: String, msgError: String)
         return
     }
 
-    if (view.editText?.text.toString().length < 3) {
-
+    if (view.editText?.text.toString().length < 3)
         view.error = msgError
-
-    } else {
+    else
         view.error = null
-    }
 
 }

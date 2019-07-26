@@ -8,14 +8,7 @@ class AuthViewModel: ViewModel() {
 
     val user = User()
 
-    val onInputEmpty = SingleLiveEvent<Void>()
-
     fun login() {
-
-        if(user.email.isEmpty() || user.senha.isEmpty()) {
-            onInputEmpty.call()
-            return
-        }
 
         user
 

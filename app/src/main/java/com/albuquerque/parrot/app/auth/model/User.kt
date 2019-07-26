@@ -21,6 +21,13 @@ class User : BaseObservable(){
                         notifyPropertyChanged(BR.nome)
                 }
 
+        var username: String = ""
+                @Bindable get() = field
+                set(value) {
+                        field = value
+                        notifyPropertyChanged(BR.nome)
+                }
+
         var email: String = ""
                 @Bindable get() = field
                 set(value) {
@@ -30,6 +37,13 @@ class User : BaseObservable(){
 
 
         var senha: String = ""
+                @Bindable get() = field
+                set(value) {
+                        field = value
+                        notifyPropertyChanged(BR.senha)
+                }
+
+        var confirmarSenha: String = ""
                 @Bindable get() = field
                 set(value) {
                         field = value
