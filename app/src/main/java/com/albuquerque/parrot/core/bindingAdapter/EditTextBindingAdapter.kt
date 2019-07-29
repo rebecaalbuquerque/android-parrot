@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter(value = ["passwordValidator", "msgError"], requireAll = true)
-fun passwordValidator(view: TextInputLayout, password: String, msgError: String) {
+fun passwordValidator(view: TextInputLayout, password: String?, msgError: String) {
 
     if (TextUtils.isEmpty(password)) {
         view.error = null

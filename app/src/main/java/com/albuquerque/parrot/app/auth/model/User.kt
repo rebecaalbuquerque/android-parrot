@@ -6,8 +6,6 @@ import com.albuquerque.parrot.BR
 import android.text.TextUtils
 import android.text.Editable
 
-
-
 class User : BaseObservable(){
 
         /*
@@ -51,5 +49,6 @@ class User : BaseObservable(){
                 }
 
 
+        var message: String? = null
 
 }

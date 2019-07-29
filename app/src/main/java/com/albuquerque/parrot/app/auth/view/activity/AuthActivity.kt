@@ -7,11 +7,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.albuquerque.parrot.R
 import com.albuquerque.parrot.app.auth.viewmodel.AuthViewModel
+import com.albuquerque.parrot.app.post.activity.PostsActivity
 import com.albuquerque.parrot.app.register.view.activity.RegisterActivity
 import com.albuquerque.parrot.databinding.ActivityAuthBinding
 import kotlinx.android.synthetic.main.activity_auth.*
 import org.jetbrains.anko.startActivity
-
 
 class AuthActivity : AppCompatActivity() {
 
@@ -55,6 +55,9 @@ class AuthActivity : AppCompatActivity() {
 
         with(authViewModel) {
 
+            onLoginSuccess.observe(this@AuthActivity, Observer {
+                startActivity<PostsActivity>()
+            })
 
         }
 
