@@ -16,6 +16,8 @@ abstract class BaseNetwork {
     companion object {
         const val BASE_URL2 = "http://172.18.9.240:3010/"
         const val BASE_URL = "https://200.19.188.7:3010/"
+
+        const val HEADER_TOKEN = "token"
     }
 
     protected fun getRetrofitBuilder(baseUrl: String = BASE_URL2): Retrofit.Builder{
