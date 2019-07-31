@@ -7,12 +7,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 
 
-@BindingAdapter("imageUrl", "placeholder")
-fun loadImage(imageView: ImageView, imageUrl: String, drawable: Drawable) {
+@BindingAdapter("src", "placeholder")
+fun loadImage(imageView: ImageView, src: String?, drawable: Drawable) {
 
     Glide
         .with(imageView.context)
-        .load(imageUrl)
+        .load(src)
         .placeholder(drawable)
         .transform(CircleCrop())
         .into(imageView)

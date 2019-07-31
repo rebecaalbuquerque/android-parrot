@@ -2,12 +2,10 @@ package com.albuquerque.parrot.app.auth.model
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import com.albuquerque.parrot.BR
-import android.text.TextUtils
-import android.text.Editable
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.albuquerque.parrot.BR
 
 @Entity(tableName = "user")
 class User : BaseObservable(){
@@ -30,7 +28,7 @@ class User : BaseObservable(){
                 @Bindable get() = field
                 set(value) {
                         field = value
-                        notifyPropertyChanged(BR.nome)
+                        notifyPropertyChanged(BR.username)
                 }
 
         var email: String = ""
@@ -52,11 +50,15 @@ class User : BaseObservable(){
                 @Bindable get() = field
                 set(value) {
                         field = value
-                        notifyPropertyChanged(BR.senha)
+                        notifyPropertyChanged(BR.confirmarSenha)
                 }
 
         var foto: String = ""
-        @Bindable get() = "http://172.18.9.240:3010/$field"
+                @Bindable get() = field
+                set(value) {
+                        field = value
+                        notifyPropertyChanged(BR.foto)
+                }
 
 
         @Ignore
@@ -64,4 +66,19 @@ class User : BaseObservable(){
 
         var token: String? = null
 
+}
+
+
+fun User.copyFrom(old: User) {
+
+        this.apply {
+                id = old.id
+                nome = old.nome
+                username = old.username
+                email = old.email
+                senha = old.senha
+                confirmarSenha = old.confirmarSenha
+                foto = old.foto
+                token = old.token
+        }
 }
