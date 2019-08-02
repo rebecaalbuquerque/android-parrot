@@ -4,6 +4,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.viewModelScope
 import com.albuquerque.parrot.app.auth.business.AuthBusiness
 import com.albuquerque.parrot.core.livedata.SingleLiveEvent
+import com.albuquerque.parrot.core.session.SessionController
 import com.albuquerque.parrot.core.viewmodel.BaseViewModel
 import kotlinx.coroutines.launch
 
@@ -15,10 +16,8 @@ class AuthViewModel: BaseViewModel() {
     val onLoginSuccess = SingleLiveEvent<Void>()
 
     init {
-        viewModelScope.launch {
-            if(database.userDAO().findFirst() != null)
-                onLoginSuccess.call()
-        }
+        if(SessionController.user != null)
+            onLoginSuccess.call()
     }
 
     fun login() {

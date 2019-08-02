@@ -9,9 +9,9 @@ object PostsNetwork : BaseNetwork() {
         PostsNetwork.getRetrofitBuilder().build().create(PostsAPI::class.java)
     }
 
-    fun requestPosts(token: String, onSuccess: (posts: MutableList<Post>) -> Unit, onError: (error: Throwable) -> Unit) {
+    fun requestPosts(onSuccess: (posts: MutableList<Post>) -> Unit, onError: (error: Throwable) -> Unit) {
         doRequest(postsAPI, onSuccess, onError) {
-            fetchPosts(token)
+            fetchPosts()
         }
     }
 

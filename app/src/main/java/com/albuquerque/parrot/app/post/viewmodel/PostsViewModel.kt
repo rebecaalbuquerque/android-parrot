@@ -1,25 +1,29 @@
 package com.albuquerque.parrot.app.post.viewmodel
 
-import androidx.lifecycle.viewModelScope
-import com.albuquerque.parrot.app.auth.model.User
-import com.albuquerque.parrot.app.auth.model.copyFrom
+import androidx.lifecycle.LiveData
+import com.albuquerque.parrot.app.post.business.PostsBusiness
+import com.albuquerque.parrot.app.post.model.Post
+import com.albuquerque.parrot.core.application.ParrotApplication
+import com.albuquerque.parrot.core.session.SessionController
 import com.albuquerque.parrot.core.viewmodel.BaseViewModel
-import kotlinx.coroutines.launch
 
-class PostsViewModel: BaseViewModel() {
+class PostsViewModel : BaseViewModel() {
 
-    var user = User()
+    var user = SessionController.user
+
+    val items: LiveData<List<Post>> = ParrotApplication.database.postsDAO().getAll()
 
     init {
-        updateUser()
+        getPosts()
     }
 
-    fun updateUser() {
-        viewModelScope.launch {
-            database.userDAO().findFirst()?.let {
-                user.copyFrom(it)
+    private fun getPosts() {
+        PostsBusiness.getPostsFromAPI(
+            { },
+            {
+                onError.call()
             }
-        }
+        )
     }
 
 }

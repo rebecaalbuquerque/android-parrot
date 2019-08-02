@@ -17,44 +17,43 @@ class User : BaseObservable(){
         @PrimaryKey
         var id: Int = 0
 
+        @Bindable
         var nome: String = ""
-                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.nome)
                 }
 
+        @Bindable
         var username: String = ""
-                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.username)
                 }
 
+        @Bindable
         var email: String = ""
-                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.email)
                 }
 
-
+        @Bindable
         var senha: String = ""
-                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.senha)
                 }
 
+        @Bindable
         var confirmarSenha: String = ""
-                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.confirmarSenha)
                 }
 
+        @Bindable
         var foto: String = ""
-                @Bindable get() = field
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.foto)

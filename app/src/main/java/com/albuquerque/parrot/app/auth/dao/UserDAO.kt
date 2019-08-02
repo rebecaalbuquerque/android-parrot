@@ -2,20 +2,12 @@ package com.albuquerque.parrot.app.auth.dao
 
 import androidx.room.*
 import com.albuquerque.parrot.app.auth.model.User
+import com.albuquerque.parrot.core.dao.BaseDAO
 
 @Dao
-interface UserDAO {
+interface UserDAO: BaseDAO<User> {
 
     @Query("SELECT * FROM user")
-    suspend fun findFirst(): User?
-
-    @Insert
-    suspend fun insertUser(user: User)
-
-    @Update
-    suspend fun updateUser(user: User)
-
-    @Delete
-    suspend fun deleteUser(user: User)
+    suspend fun get(): User?
 
 }
