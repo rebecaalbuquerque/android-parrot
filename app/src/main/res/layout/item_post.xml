@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
 
         <variable
             name="post"
@@ -26,8 +26,8 @@
             app:layout_constraintBottom_toTopOf="@+id/messagePost"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:src='@{""}'
             app:placeholder="@{@drawable/ic_launcher_background}"
+            app:src='@{""}'
             tools:ignore="ContentDescription"
             tools:src="@drawable/ic_launcher_background" />
 
@@ -65,16 +65,16 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:visibility="@{post.imagem != null ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toTopOf="@+id/totalCurtidas"
             app:layout_constraintDimensionRatio="21:9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/messagePost"
-            android:visibility="@{post.imagem != null ? View.VISIBLE : View.GONE}"
-            app:src="@{post.imagem}"
-            android:scaleType="centerCrop"
             app:placeholder="@{@drawable/ic_launcher_background}"
+            app:src="@{post.imagem}"
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
@@ -103,7 +103,15 @@
             app:layout_constraintTop_toTopOf="@+id/totalCurtidas"
             tools:text="1h ago" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/postOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_more_horiz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/totalCurtidas" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
