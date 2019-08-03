@@ -30,6 +30,12 @@ class PostsActivity : AppCompatActivity() {
 
         setupDataBinding()
 
+        // TODO: teste
+        postsViewModel.items.observe(this@PostsActivity, Observer {
+            //postsViewModel.items.value = it
+            it
+        })
+
     }
 
 
