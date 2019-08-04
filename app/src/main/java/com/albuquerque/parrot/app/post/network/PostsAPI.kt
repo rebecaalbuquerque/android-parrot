@@ -11,7 +11,7 @@ interface PostsAPI {
 
     @GET("/postagem")
     fun fetchPosts(
-        @Header(BaseNetwork.HEADER_TOKEN) token: String = SessionController.user?.token ?: ""
+        @Header(BaseNetwork.HEADER_TOKEN) token: String = SessionController.token
     ): Observable<MutableList<Post>>
 
 }

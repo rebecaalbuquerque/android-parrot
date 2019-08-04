@@ -3,11 +3,8 @@ package com.albuquerque.parrot.core.application
 import android.app.Application
 import androidx.room.Room
 import com.albuquerque.parrot.core.database.AppDataBase
-import com.albuquerque.parrot.core.session.SessionController
 import com.facebook.stetho.Stetho
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+
 
 class ParrotApplication: Application() {
 
@@ -26,10 +23,6 @@ class ParrotApplication: Application() {
         initializerBuilder.enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
         val initializer = initializerBuilder.build()
         Stetho.initialize(initializer)
-
-        GlobalScope.launch(Dispatchers.IO) {
-            SessionController.user = database.userDAO().get()
-        }
 
     }
 

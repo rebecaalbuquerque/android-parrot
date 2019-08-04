@@ -1,12 +1,9 @@
 package com.albuquerque.parrot.app.auth.viewmodel
 
 import androidx.databinding.ObservableField
-import androidx.lifecycle.viewModelScope
 import com.albuquerque.parrot.app.auth.business.AuthBusiness
 import com.albuquerque.parrot.core.livedata.SingleLiveEvent
-import com.albuquerque.parrot.core.session.SessionController
 import com.albuquerque.parrot.core.viewmodel.BaseViewModel
-import kotlinx.coroutines.launch
 
 class AuthViewModel: BaseViewModel() {
 
@@ -14,11 +11,6 @@ class AuthViewModel: BaseViewModel() {
     var senha = ObservableField<String>()
 
     val onLoginSuccess = SingleLiveEvent<Void>()
-
-    init {
-        if(SessionController.user != null)
-            onLoginSuccess.call()
-    }
 
     fun login() {
 

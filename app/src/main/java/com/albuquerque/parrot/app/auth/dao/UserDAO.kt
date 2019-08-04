@@ -1,6 +1,8 @@
 package com.albuquerque.parrot.app.auth.dao
 
-import androidx.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Query
 import com.albuquerque.parrot.app.auth.model.User
 import com.albuquerque.parrot.core.dao.BaseDAO
 
@@ -8,6 +10,6 @@ import com.albuquerque.parrot.core.dao.BaseDAO
 interface UserDAO: BaseDAO<User> {
 
     @Query("SELECT * FROM user")
-    suspend fun get(): User?
+    fun get(): LiveData<User>
 
 }

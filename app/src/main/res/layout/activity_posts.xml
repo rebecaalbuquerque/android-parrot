@@ -37,8 +37,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:placeholder="@{@drawable/ic_launcher_background}"
-                app:src="@{viewModel.user.foto}"
+                app:placeholderCircle="@{@drawable/ic_launcher_background}"
+                app:srcCircle="@{viewModel.user.foto}"
                 tools:ignore="ContentDescription" />
 
             <EditText

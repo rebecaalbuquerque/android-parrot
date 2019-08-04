@@ -26,8 +26,8 @@
             app:layout_constraintBottom_toTopOf="@+id/messagePost"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:placeholder="@{@drawable/ic_launcher_background}"
-            app:src='@{""}'
+            app:placeholderCircle="@{@drawable/ic_launcher_background}"
+            app:srcCircle='@{""}'
             tools:ignore="ContentDescription"
             tools:src="@drawable/ic_launcher_background" />
 
