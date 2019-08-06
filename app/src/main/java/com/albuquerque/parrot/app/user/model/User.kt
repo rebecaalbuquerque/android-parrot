@@ -1,18 +1,13 @@
-package com.albuquerque.parrot.app.auth.model
+package com.albuquerque.parrot.app.user.model
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.albuquerque.parrot.BR
 
 @Entity(tableName = "user")
-class User : BaseObservable(){
-
-        /*
-        * @Bindable e notifyPropertyChanged garantem que as atualizações no model atualizem também a view
-        * */
+class User : BaseObservable() {
 
         @PrimaryKey
         var id: Int = 0
@@ -58,26 +53,4 @@ class User : BaseObservable(){
                         field = value
                         notifyPropertyChanged(BR.foto)
                 }
-
-
-        @Ignore
-        var message: String? = null
-
-        var token: String? = null
-
-}
-
-
-fun User.copyFrom(old: User) {
-
-        this.apply {
-                id = old.id
-                nome = old.nome
-                username = old.username
-                email = old.email
-                senha = old.senha
-                confirmarSenha = old.confirmarSenha
-                foto = old.foto
-                token = old.token
-        }
 }

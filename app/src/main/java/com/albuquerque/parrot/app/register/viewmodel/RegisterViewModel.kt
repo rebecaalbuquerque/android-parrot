@@ -1,7 +1,7 @@
 package com.albuquerque.parrot.app.register.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.albuquerque.parrot.app.auth.model.User
+import com.albuquerque.parrot.app.user.model.User
 
 class RegisterViewModel: ViewModel()  {
 

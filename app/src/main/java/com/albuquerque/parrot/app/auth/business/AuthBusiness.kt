@@ -20,7 +20,7 @@ object AuthBusiness: CoroutineScope by MainScope() {
                     launch {
 
                         withContext(Dispatchers.IO) {
-                            ParrotApplication.database.userDAO().insert(user)
+                            ParrotApplication.database.authDAO().insert(user)
                         }
 
                         onSuccess()

@@ -3,13 +3,13 @@ package com.albuquerque.parrot.app.auth.dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
-import com.albuquerque.parrot.app.auth.model.User
+import com.albuquerque.parrot.app.auth.model.Auth
 import com.albuquerque.parrot.core.dao.BaseDAO
 
 @Dao
-interface UserDAO: BaseDAO<User> {
+interface AuthDAO: BaseDAO<Auth> {
 
-    @Query("SELECT * FROM user")
-    fun get(): LiveData<User>
+    @Query("SELECT * FROM auth")
+    fun get(): LiveData<Auth>
 
 }

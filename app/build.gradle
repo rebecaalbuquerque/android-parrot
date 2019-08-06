@@ -43,6 +43,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Data Binding
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.databinding:databinding-compiler:3.4.2"
 
     // Coroutines

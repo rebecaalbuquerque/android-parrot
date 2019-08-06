@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Vinculando ViewModel com a view -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.albuquerque.parrot.app.auth.viewmodel.AuthViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/profileUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/profileFriends"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profilePicture"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="'@Rebeca'" />
+
+            <TextView
+                android:id="@+id/profileFriends"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/profileUsername"
+                app:layout_constraintTop_toBottomOf="@+id/profileUsername"
+                tools:text="27K amigos" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Teste"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/profileFriends"
+                app:layout_constraintTop_toBottomOf="@+id/profileFriends" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

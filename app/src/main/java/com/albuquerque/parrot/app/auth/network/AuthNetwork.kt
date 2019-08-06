@@ -1,6 +1,6 @@
 package com.albuquerque.parrot.app.auth.network
 
-import com.albuquerque.parrot.app.auth.model.User
+import com.albuquerque.parrot.app.auth.model.Auth
 import com.albuquerque.parrot.core.network.BaseNetwork
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,11 +12,11 @@ object AuthNetwork: BaseNetwork() {
         AuthNetwork.getRetrofitBuilder().build().create(AuthAPI::class.java)
     }
 
-    fun requestLogin(email: String, senha: String, onSuccess: (response: Response<User>) -> Unit, onError: (error: Throwable) -> Unit){
+    fun requestLogin(email: String, senha: String, onSuccess: (response: Response<Auth>) -> Unit, onError: (error: Throwable) -> Unit){
 
-        authAPI.login(email, senha).enqueue(object : Callback<User>{
+        authAPI.login(email, senha).enqueue(object : Callback<Auth>{
 
-            override fun onResponse(call: Call<User>, response: Response<User>) {
+            override fun onResponse(call: Call<Auth>, response: Response<Auth>) {
 
                 if(response.isSuccessful)
                     onSuccess(response)
@@ -25,7 +25,7 @@ object AuthNetwork: BaseNetwork() {
 
             }
 
-            override fun onFailure(call: Call<User>, t: Throwable) {
+            override fun onFailure(call: Call<Auth>, t: Throwable) {
                 onError(t)
             }
 

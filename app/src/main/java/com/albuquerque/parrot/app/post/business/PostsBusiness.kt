@@ -4,6 +4,7 @@ import com.albuquerque.parrot.app.post.model.Post
 import com.albuquerque.parrot.app.post.network.PostsNetwork
 import com.albuquerque.parrot.core.application.ParrotApplication
 import com.albuquerque.parrot.core.network.BaseNetwork
+import com.albuquerque.parrot.core.session.SessionController
 import kotlinx.coroutines.*
 
 object PostsBusiness: CoroutineScope by MainScope() {
@@ -12,17 +13,23 @@ object PostsBusiness: CoroutineScope by MainScope() {
 
         PostsNetwork.requestPosts(
                 { posts ->
-                    posts.forEach {
-                        if(it.imagem?.contains("missing.png") == false)
-                            it.imagem = BaseNetwork.BASE_URL2 + it.imagem
-                        else
-                            it.imagem = null
+                    posts.forEach { post ->
+
+                        post.imagem?.let {
+
+                            if(!it.contains("/images/original/missing.png"))
+                                post.imagem = BaseNetwork.BASE_URL2 + post.imagem
+                            else
+                                post.imagem = null
+
+                        }
+
                     }
 
                     launch {
 
                         withContext(Dispatchers.IO) {
-                            ParrotApplication.database.postsDAO().insertAll(posts)
+                            ParrotApplication.database.postsDAO().insertPosts(posts)
                         }
 
                         onSuccess(posts)

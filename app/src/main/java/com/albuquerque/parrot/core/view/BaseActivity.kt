@@ -11,7 +11,7 @@ abstract class BaseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        ParrotApplication.database.userDAO().get().observe(this@BaseActivity, Observer { user ->
+        ParrotApplication.database.authDAO().get().observe(this@BaseActivity, Observer { user ->
             user?.let { SessionController.updateUser(it) }
 
         })
