@@ -34,7 +34,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:onClick="@{() -> handler.onUserPostClick(post)}"
+            android:onClick="@{(v) -> handler.onUserPostClick(v, user)}"
             app:layout_constraintBottom_toTopOf="@+id/messagePost"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
