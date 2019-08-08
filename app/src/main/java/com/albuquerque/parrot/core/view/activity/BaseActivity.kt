@@ -1,4 +1,4 @@
-package com.albuquerque.parrot.core.view
+package com.albuquerque.parrot.core.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

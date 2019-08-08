@@ -1,19 +1,17 @@
 package com.albuquerque.parrot.app.post.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import com.albuquerque.parrot.app.post.model.Post
+import com.albuquerque.parrot.app.post.model.PostUser
 import com.albuquerque.parrot.core.application.ParrotApplication
 import com.albuquerque.parrot.core.dao.BaseDAO
-import com.albuquerque.parrot.core.session.SessionController
 
 @Dao
 interface PostsDAO: BaseDAO<Post> {
 
-    @Query("SELECT * FROM posts")
-    fun getAll(): LiveData<List<Post>>
+    @Query("SELECT * FROM posts INNER JOIN user ON user.idUser = userId")
+    fun getAll(): LiveData<List<PostUser>>
 
     @Transaction
     suspend fun insertPosts(posts: List<Post>) {

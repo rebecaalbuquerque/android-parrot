@@ -7,7 +7,7 @@ import com.albuquerque.parrot.app.user.view.fragment.NotificationFragment
 import com.albuquerque.parrot.app.user.view.fragment.ProfileFragment
 import com.albuquerque.parrot.app.user.view.fragment.SearchFragment
 import com.albuquerque.parrot.core.extensions.openFragment
-import com.albuquerque.parrot.core.view.BaseActivity
+import com.albuquerque.parrot.core.view.activity.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {

@@ -1,4 +1,4 @@
-package com.albuquerque.parrot.core.holder
+package com.albuquerque.parrot.core.view.holder
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

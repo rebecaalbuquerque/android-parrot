@@ -2,10 +2,7 @@ package com.albuquerque.parrot.app.post.model
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.albuquerque.parrot.BR
 import com.albuquerque.parrot.app.user.model.User
 import com.google.gson.annotations.SerializedName
@@ -15,13 +12,14 @@ import com.google.gson.annotations.SerializedName
     foreignKeys = [
         ForeignKey(
             entity = User::class,
-            parentColumns = arrayOf("id"),
+            parentColumns = arrayOf("idUser"),
             childColumns = arrayOf("userId")
         )
     ]
 )
 class Post : BaseObservable() {
 
+    @ColumnInfo(name = "idPost")
     @PrimaryKey
     var id: Int = 0
 

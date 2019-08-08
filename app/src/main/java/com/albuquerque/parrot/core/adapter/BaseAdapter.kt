@@ -1,7 +1,7 @@
 package com.albuquerque.parrot.core.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.albuquerque.parrot.core.holder.BaseViewHolder
+import com.albuquerque.parrot.core.view.holder.BaseViewHolder
 
 abstract class BaseAdapter<T, Holder: BaseViewHolder<T>>: RecyclerView.Adapter<Holder>() {
 
