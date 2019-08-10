@@ -2,7 +2,6 @@ package com.albuquerque.parrot.app.user.model
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.albuquerque.parrot.BR
@@ -10,7 +9,6 @@ import com.albuquerque.parrot.BR
 @Entity(tableName = "user")
 class User : BaseObservable() {
 
-        @ColumnInfo(name = "idUser")
         @PrimaryKey
         var id: Int = 0
 

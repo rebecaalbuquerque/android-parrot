@@ -12,20 +12,19 @@ import com.google.gson.annotations.SerializedName
     foreignKeys = [
         ForeignKey(
             entity = User::class,
-            parentColumns = arrayOf("idUser"),
+            parentColumns = arrayOf("id"),
             childColumns = arrayOf("userId")
         )
     ]
 )
 class Post : BaseObservable() {
 
-    @ColumnInfo(name = "idPost")
     @PrimaryKey
     var id: Int = 0
 
     var userId: Int = 0
 
-    @Ignore
+    @Embedded(prefix = "autor_")
     var autor: User? = null
 
     @Bindable
@@ -58,7 +57,7 @@ class Post : BaseObservable() {
         }
 
     @Bindable
-    var imagem: String? = ""
+    var imagem: String = ""
         set(value) {
             field = value
             notifyPropertyChanged(BR.imagem)
