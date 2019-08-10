@@ -9,7 +9,6 @@ import com.albuquerque.parrot.app.post.model.PostUser
 import com.albuquerque.parrot.core.adapter.BaseAdapter
 import com.albuquerque.parrot.databinding.ItemPostBinding
 
-
 class PostsAdapter: BaseAdapter<PostUser, PostViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {

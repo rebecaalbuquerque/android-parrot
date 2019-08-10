@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.albuquerque.parrot.core.adapter.BaseAdapter
 import com.albuquerque.parrot.core.view.holder.BaseViewHolder
 
-
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("app:items")
 fun setItems(recyclerView: RecyclerView, items: List<Any>?) {

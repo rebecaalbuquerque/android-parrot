@@ -20,11 +20,12 @@ import com.google.gson.annotations.SerializedName
 class Post : BaseObservable() {
 
     @PrimaryKey
+    @ColumnInfo(name = "post_id")
     var id: Int = 0
 
     var userId: Int = 0
 
-    @Embedded(prefix = "autor_")
+    @Ignore
     var autor: User? = null
 
     @Bindable
@@ -57,7 +58,7 @@ class Post : BaseObservable() {
         }
 
     @Bindable
-    var imagem: String = ""
+    var imagem: String? = null
         set(value) {
             field = value
             notifyPropertyChanged(BR.imagem)

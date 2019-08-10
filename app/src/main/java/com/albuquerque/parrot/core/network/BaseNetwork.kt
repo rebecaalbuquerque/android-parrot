@@ -5,7 +5,6 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -14,8 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 abstract class BaseNetwork {
 
     companion object {
-        const val BASE_URL2 = "http://172.18.9.240:3010"
-        const val BASE_URL = "http://200.19.188.7:3010"
+        const val BASE_URL = "http://172.18.9.240:3010"
+        const val BASE_URL2 = "http://200.19.188.7:3010"
 
         const val HEADER_TOKEN = "token"
     }

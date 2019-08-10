@@ -4,7 +4,6 @@ import com.albuquerque.parrot.app.post.model.Post
 import com.albuquerque.parrot.app.post.network.PostsNetwork
 import com.albuquerque.parrot.core.application.ParrotApplication
 import com.albuquerque.parrot.core.network.BaseNetwork
-import com.albuquerque.parrot.core.session.SessionController
 import kotlinx.coroutines.*
 
 object PostsBusiness: CoroutineScope by MainScope() {

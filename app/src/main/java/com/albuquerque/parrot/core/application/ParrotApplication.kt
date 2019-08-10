@@ -5,7 +5,6 @@ import androidx.room.Room
 import com.albuquerque.parrot.core.database.AppDataBase
 import com.facebook.stetho.Stetho
 
-
 class ParrotApplication: Application() {
 
     companion object {

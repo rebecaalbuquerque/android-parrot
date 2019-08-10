@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.albuquerque.parrot.R
 import com.albuquerque.parrot.app.post.adapter.PostsAdapter
@@ -35,16 +34,11 @@ class PostsFragment : Fragment() {
         setupView()
         setupDataBinding()
 
-        postsViewModel.items2.observe(this@PostsFragment, Observer { list ->
-            list?.let {
-                it
-            }
-        })
     }
 
     private fun setupDataBinding() {
         with(binding) {
-            lifecycleOwner = this@PostsFragment // If you are using LiveData for data binding
+            lifecycleOwner = this@PostsFragment
             viewModel = postsViewModel
             executePendingBindings()
         }
