@@ -3,22 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Vinculando ViewModel com a view -->
     <data>
 
+        <import type="androidx.lifecycle.LiveData" />
+
         <variable
-            name="viewModel"
-            type="com.albuquerque.parrot.app.auth.viewmodel.AuthViewModel" />
+            name="user"
+            type="LiveData&lt;com.albuquerque.parrot.app.user.model.User>" />
+
+        <variable
+            name="posts"
+            type="LiveData&lt;java.util.List&lt;com.albuquerque.parrot.app.post.model.PostUser>>" />
 
     </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/profilePicture"
@@ -26,33 +32,54 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonProfile"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profileName"
+                app:placeholderCircle="@{@drawable/ic_launcher_background}"
+                app:srcCircle='@{user.foto}'
                 tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{user.nome}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/profileUsername"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/profilePicture"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rebeca" />
 
             <TextView
                 android:id="@+id/profileUsername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:text="@{`@` + user.username}"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/profileFriends"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/profilePicture"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="'@Rebeca'" />
+                app:layout_constraintEnd_toEndOf="@id/profileName"
+                app:layout_constraintStart_toStartOf="@id/profileName"
+                app:layout_constraintTop_toBottomOf="@+id/profileName"
+                tools:text="'@becaalb'" />
 
             <TextView
                 android:id="@+id/profileFriends"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:text="x amigos"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/buttonProfile"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/profileUsername"
+                app:layout_constraintEnd_toEndOf="@id/profileName"
+                app:layout_constraintStart_toStartOf="@id/profileName"
                 app:layout_constraintTop_toBottomOf="@+id/profileUsername"
                 tools:text="27K amigos" />
 
@@ -60,10 +87,25 @@
                 android:id="@+id/buttonProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginTop="2dp"
                 android:text="Teste"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/profileFriends"
+                app:layout_constraintStart_toStartOf="@id/profileName"
                 app:layout_constraintTop_toBottomOf="@+id/profileFriends" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPosts"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorBackground"
+                android:backgroundTint="@color/colorBackground"
+                android:orientation="vertical"
+                app:items="@{posts}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonProfile" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,12 +1,12 @@
 package com.albuquerque.parrot.app.user.view.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.albuquerque.parrot.R
 import com.albuquerque.parrot.app.user.view.fragment.ProfileFragment
 import com.albuquerque.parrot.core.extensions.openFragment
+import com.albuquerque.parrot.core.view.activity.BaseActivity
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : BaseActivity() {
 
     companion object {
         const val PROFILE_USER_ID = "PROFILE_USER_ID"

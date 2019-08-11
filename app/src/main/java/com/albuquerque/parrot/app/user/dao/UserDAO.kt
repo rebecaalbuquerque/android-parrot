@@ -13,6 +13,6 @@ interface UserDAO: BaseDAO<User> {
     fun get(): LiveData<User>
 
     @Query("SELECT * FROM user WHERE id = :id")
-    suspend fun get(id: Int): User?
+    fun get(id: Int): LiveData<User>
 
 }

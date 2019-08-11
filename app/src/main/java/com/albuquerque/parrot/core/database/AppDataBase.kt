@@ -9,7 +9,7 @@ import com.albuquerque.parrot.app.user.model.User
 import com.albuquerque.parrot.app.post.dao.PostsDAO
 import com.albuquerque.parrot.app.post.model.Post
 
-@Database(version = 1, entities = [User::class, Post::class, Auth::class])
+@Database(version = 2, entities = [User::class, Post::class, Auth::class])
 abstract class AppDataBase: RoomDatabase() {
 
     abstract fun userDAO(): UserDAO

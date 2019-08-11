@@ -13,6 +13,9 @@ interface PostsDAO: BaseDAO<Post> {
     @Query("SELECT * FROM posts INNER JOIN user ON user.id = userId")
     fun getAll(): LiveData<List<PostUser>>
 
+    @Query("SELECT * FROM posts INNER JOIN user ON user.id = userId WHERE userId = :id")
+    fun getAll(id: Int): LiveData<List<PostUser>>
+
     @Transaction
     suspend fun insertPosts(posts: List<Post>) {
         posts.forEach { post ->

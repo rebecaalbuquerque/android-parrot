@@ -12,14 +12,8 @@ class PostViewHolder(var binding: ViewDataBinding) : BaseViewHolder<PostUser>(bi
     override fun bind(item: PostUser) {
 
         with(binding as ItemPostBinding) {
-            item.post?.let {
-                post = it
-            }
-
-            item.autor?.let {
-                user = it.apply { foto = BaseNetwork.BASE_URL2 + foto }
-            }
-
+            item.post?.let { post = it }
+            item.autor?.let { user = it }
             handler = PostHandler
             executePendingBindings()
         }

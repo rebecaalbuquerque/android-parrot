@@ -9,7 +9,7 @@ import com.albuquerque.parrot.BR
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "user")
-class User : BaseObservable() {
+class User : BaseObservable(), IUser {
 
         @PrimaryKey
         var id: Int = 0
@@ -50,7 +50,7 @@ class User : BaseObservable() {
                 }
 
         @Bindable
-        var foto: String = ""
+        var foto: String? = null
                 set(value) {
                         field = value
                         notifyPropertyChanged(BR.foto)

@@ -23,6 +23,15 @@ object PostsBusiness: CoroutineScope by MainScope() {
 
                         }
 
+                        post.autor?.foto?.let {
+
+                            if(!it.contains("/images/original/missing.png"))
+                                post.autor?.foto = BaseNetwork.BASE_URL2 + it
+                            else
+                                post.autor?.foto = null
+
+                        }
+
                     }
 
                     launch {

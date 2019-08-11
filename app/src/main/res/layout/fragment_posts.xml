@@ -11,74 +11,85 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        tools:context=".app.post.activity.PostsActivity">
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutNewPost"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/shape_roudend_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
 
-            <ImageView
-                android:id="@+id/userPhoto"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+            tools:context=".app.post.activity.PostsActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutNewPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:focusable="false"
+                android:background="@drawable/shape_roudend_background"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:placeholderCircle="@{@drawable/ic_launcher_background}"
-                app:srcCircle="@{viewModel.user.foto}"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/editTextPost"
+                <ImageView
+                    android:id="@+id/userPhoto"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderCircle="@{@drawable/ic_launcher_background}"
+                    app:srcCircle="@{viewModel.user.foto}"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/editTextPost"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="top"
+                    android:hint="@string/hint_new_post"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="200"
+                    android:maxLines="4"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/userPhoto"
+                    app:layout_constraintTop_toTopOf="@+id/userPhoto"
+                    tools:ignore="Autofill" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPosts"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:gravity="top"
-                android:hint="@string/hint_new_post"
-                android:inputType="textCapSentences|textMultiLine"
-                android:maxLength="200"
-                android:maxLines="4"
-                android:padding="8dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:focusable="true"
+                app:items="@{viewModel.items}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/userPhoto"
-                app:layout_constraintTop_toTopOf="@+id/userPhoto"
-                tools:ignore="Autofill" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutNewPost" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPosts"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            android:background="@color/colorBackground"
-            android:backgroundTint="@color/colorBackground"
-            app:items="@{viewModel.items}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutNewPost" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

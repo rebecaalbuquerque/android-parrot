@@ -15,8 +15,7 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".app.user.view.activity.ProfileActivity">
-        </activity>
+
         <activity android:name=".app.auth.view.activity.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,8 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".app.auth.view.activity.MainActivity"/>
+
         <activity android:name=".app.register.view.activity.RegisterActivity"/>
+
+        <activity android:name=".app.user.view.activity.ProfileActivity"/>
+
     </application>
 
 </manifest>
